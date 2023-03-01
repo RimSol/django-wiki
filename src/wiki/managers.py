@@ -65,7 +65,7 @@ class ArticleFkQuerySetMixin:
             q = self.filter(
                 Q(article__other_read=True)
                 | Q(article__owner=user)
-                | (Q(article__group__user=user) & Q(article__group_read=True))
+                # | (Q(article__group__user=user) & Q(article__group_read=True))
             ).annotate(Count("id"))
         return q
 
